@@ -1,0 +1,66 @@
+
+log=$1
+
+
+function 12in2() {
+echo "Login 12inTwo"
+passwd="Openstack((*&2017"
+sshpass -p $passwd ssh root@172.16.132.227
+}
+
+function 12in3() {
+echo "Login 12in3"
+passwd="openstack"
+sshpass -p $passwd ssh root@172.16.132.18
+}
+
+function 12in3CI() {
+
+echo "Login 12in3CI"
+# ssh root@172.16.138.194
+passwd="OpenStack@2017"
+sshpass -p $passwd ssh root@172.16.138.194
+}
+
+function bzyf() {
+
+echo "Login bzyf"
+# ssh root@172.16.138.194
+passwd="openstack"
+sshpass -p $passwd ssh root@172.16.138.10
+}
+
+function work() {
+
+echo "Log work"
+# ssh root@172.16.140.194
+passwd="OpenStack@2017"
+sshpass -p $passwd ssh root@172.16.140.194
+}
+
+function main() {
+
+if [ "$log" = "122" ]; then
+   122
+
+fi
+if [ "$log" = "123" ]; then
+   12in3
+
+fi
+if [ "$log" = "123ci" ]; then
+   1212in3CI
+
+fi
+if [ "$log" = "work" ]; then
+   work
+
+fi
+
+if [ "$log" = "bzyf" ]; then
+   bzyf
+
+fi
+}
+
+main

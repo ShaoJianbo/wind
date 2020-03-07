@@ -1,0 +1,10 @@
+
+source /root/keystonerc_trove
+# 获取DMP的datatore_version_id
+dmp_datastore_version_id=$(trove datastore-version-list dmp | grep '3.18.12' | awk '{print $2}')
+
+# 注意测试环境配置规格为8_16G_50G, 线上环境配置16_32G_50G
+dmp_flavor_id=$(nova flavor-list | grep ram_type_2_4G_50G | awk '{print $2}')
+
+# 部署DMP
+trove dmp-init DMP_CLUSTER $dmp_flavor_id --datastore_version $dmp_datastore_version_id --performance 1
