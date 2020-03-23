@@ -1,0 +1,4 @@
+
+graph g1{
+"internet" -- "k8s"
+}
