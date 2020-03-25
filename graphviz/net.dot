@@ -1,4 +1,39 @@
+digraph G {
+    compound=true
+    subgraph "br-ex" {
+     bond0.3 -> bond0.3
+     external -> external
+     "phy-br-ex" -> "phy-br-ex"
+	}
+	subgraph "br-int" {
+		tapXXX -> tapXXX
+		qvoYYY -> qvoYYY
+		"qr-ZZZ" -> "qr-ZZZ"
+		"qg-ZZZ" -> "qg-ZZZ"
+		"haAAA" -> "haAAA"
+		"int-br-ex" -> "int-br-ex"
+		"int-br-private" -> "int-br-private"
+		"patch-tun"  -> "patch-tun"
+	}
+	subgraph "br-internal"{
+	    "bond0.4" -> "bond0.4"
+	    "br-cdps" -> "br-cdps"
+	    "br-volume" -> "br-volume"
+	    "internal_vip" -> "internal_vip"
+	    "vneth1" -> "vneth1"
+	}
+	subgraph "br-private" {
+	    "bond0" -> "bond0"
+	    "phy-br-private" -> "phy-br-private"
+	}
+	subgraph "br-pxe"{
+	    "eth0" -> "eth0"
+	    "vneth0" -> "vneth0"
+	    "vneth2" -> "vneth2"
+	}
+	subgraph "br-tun"{
+	    "patch-int" -> "patch-int"
+	    "vxlan-ac1e0c1b" -> "vxlan-ac1e0c1b"
+	}
 
-graph g1{
-"internet" -- "k8s"
 }
