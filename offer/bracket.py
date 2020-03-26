@@ -28,9 +28,27 @@ class Solution:
                     stack.pop()
         return len(stack) == 0
 
+    def get_ans(self, n):
+        """构造解空间树求解答案"""
+        ans = []
+        self.dfs(ans, 1, 0, "(", n)
+        return ans
+
+    def dfs(self, ans, left, right, bracket, n):
+        """深度递归构造解空间树"""
+        if left + right == 2 * n:
+            ans.append(bracket)
+            return
+        if left < n:
+            self.dfs(ans, left + 1, right, bracket + "(", n)
+        if right < n and right < left:
+            self.dfs(ans, left, right + 1, bracket + ")", n)
+
 
 if __name__ == "__main__":
     n = 3
     so = Solution()
-    res = so.generateParenthesis(n)
+    # res = so.generateParenthesis(n)
+    # print(res)
+    res = so.get_ans(n)
     print(res)
