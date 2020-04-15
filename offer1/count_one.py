@@ -6,7 +6,6 @@ class Solution:
         i = 0
         while i <= n:
             if i <= n and "1" in str(i):
-                # print(f"i-->{i}")
                 ans += str(i).count('1')
             i += 1
         return ans

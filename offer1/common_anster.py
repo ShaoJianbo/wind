@@ -13,18 +13,18 @@ class Solution:
         return ans
 
     def get_depth(self, root):
-        """遍历node节点,根据左右子树的深度决定返回公共父节点"""
+        """深度遍历root节点,根据左右子树的深度决定返回公共父节点"""
         if not root:
             return None, 0
-        lr, ld = self.get_depth(root.left)
-        rr, rd = self.get_depth(root.right)
+        left_root, left_depth = self.get_depth(root.left)
+        right_root, right_depth = self.get_depth(root.right)
 
-        if ld > rd:
-            return lr, ld+1
-        elif ld < rd:
-            return rr, rd+1
+        if left_depth > right_depth:
+            return left_root, left_depth+1
+        elif left_depth < right_depth:
+            return right_root, right_depth+1
         else:
-            return root, ld + 1
+            return root, left_depth + 1
 
 
 if __name__ == '__main__':
