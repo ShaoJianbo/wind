@@ -5,6 +5,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
         return bool(A and B) and (self.recur(A, B) or \
